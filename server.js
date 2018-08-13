@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const config = require('./config');
 const mongoose = require('mongoose');
+const api = require('./routes/api');
 
 let connectionString = '';
 if(config.database.credentials) {
@@ -28,6 +29,9 @@ app.use(cors());
 
 // Setting the static folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+// api router
+app.use('/api/v1', api);
 
 app.listen(config.app.port, () => {
     console.log('Server listenig on port: '+ config.app.port);
