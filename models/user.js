@@ -30,7 +30,8 @@ const schema = new mongoose.Schema(
         created: { 
             type: Date, 
             default: Date.now 
-        }
+        },
+        messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }]
     }
 );
 const User = mongoose.model('User', schema);
