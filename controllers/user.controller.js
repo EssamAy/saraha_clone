@@ -19,9 +19,25 @@ const userController = {
         })
     },
     addUser: function(req, res) {
-        res.json({
-            message: 'User Added'
-        })
+        const user = {
+            email: req.body.email,
+            password: req.body.password,
+            username: req.body.username,
+            name: req.body.name,
+            birth_date: req.body.birth_date,
+            gender: req.body.gender,
+            country: req.body.country
+        };
+        User.create(user, (err, data)=>{
+            if (err) {
+                res.json({
+                    success: false,
+                    message: 'User not Registred'
+                })
+            } else {
+                res.json(user);
+            }
+        });
     }
 }
 
