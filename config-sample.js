@@ -7,6 +7,7 @@ const config = {
         host: 'localhost',
         name: 'saraha',
         port: 27017,
+        credentials: false,
         username: '',
         password: ''
     }
