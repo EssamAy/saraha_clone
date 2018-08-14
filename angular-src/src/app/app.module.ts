@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './partials/header/header.component';
@@ -14,6 +15,19 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'account/login', component: LoginComponent },
+  { path: 'acount/register', component: RegisterComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'messages', component: MessagesComponent },
+  { path: 'profile/:username', component: ProfileComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'terms', component: TermsComponent },
+];
 
 @NgModule({
   declarations: [
@@ -32,7 +46,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
     SettingsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
