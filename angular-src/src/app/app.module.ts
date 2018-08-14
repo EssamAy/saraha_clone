@@ -19,7 +19,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'account/login', component: LoginComponent },
-  { path: 'acount/register', component: RegisterComponent },
+  { path: 'account/register', component: RegisterComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'messages', component: MessagesComponent },
