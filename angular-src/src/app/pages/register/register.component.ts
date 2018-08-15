@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -32,13 +33,25 @@ export class RegisterComponent implements OnInit {
   gender: String;
   country: String;
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
   }
 
   onRegisterSubmit() {
-    console.log(this.email);
+    // Form validation goes here
+    const user = {
+      email: this.email,
+      password: this.password,
+      username: this.username,
+      name: this.name,
+      birth_date: this.birthdate,
+      gender: this.gender,
+      country: this.country
+    };
+    this.apiService.registerUser(user).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
