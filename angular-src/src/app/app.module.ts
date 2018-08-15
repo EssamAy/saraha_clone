@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule,  ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +30,8 @@ const appRoutes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
+  { path: 'account/forgotpassword', component: ForgotpasswordComponent },
+  { path: 'account/resetpassword', component: ResetpasswordComponent },
 ];
 
 @NgModule({
@@ -43,10 +48,14 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
