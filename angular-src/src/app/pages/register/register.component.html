@@ -1,9 +1,9 @@
 <div class="col-md-8 col-md-offset-2">
     <h2 class="page-header">Register</h2>
-    <form>
+    <form (submit)="onRegisterSubmit()">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input [(ngModel)]="email" type="email" class="form-control" name="email" placeholder="Email">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
@@ -18,6 +18,10 @@
             <input type="text" class="form-control" name="username" placeholder="Username">
         </div>
         <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
             <label for="birthdate">Birth Date</label>
             <input type="date" class="form-control" name="birthdate" placeholder="Birth Date">
         </div>
@@ -30,7 +34,9 @@
         </div>
         <div class="form-group">
             <label for="country">Country</label>
-            <input type="text" class="form-control" name="country" placeholder="Country">
+            <select class="form-control" name="country">
+                <option *ngFor="let country of countryList">{{country}}</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-default">Register</button>
         <div class="text-center">Already have an account? <a routerLink="/account/login">Click here</a></div>
